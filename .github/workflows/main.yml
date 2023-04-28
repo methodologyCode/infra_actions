@@ -1,0 +1,15 @@
+name: CI  # название workflow;
+
+on:  # ивент, событие-триггер, после которого сработает workflow;
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:  #  список действий, которые выполняются после срабатывания события;
+  build:
+    runs-on: ubuntu-latest  # Настройки окружения.
+    steps:
+    - uses: actions/checkout@v2  # checkout@v2 / для вызова actions.
+    - name: Run a one-line script  # Просто имя.
+      run: echo Hello, world!  # Будет выполнена в терминале окружения.
