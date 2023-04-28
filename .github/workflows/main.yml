@@ -2,14 +2,14 @@ name: CI  # название workflow;
 
 on:  # ивент, событие-триггер, после которого сработает workflow;
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     
 jobs:  #  список действий, которые выполняются после срабатывания события;
   build:
     runs-on: ubuntu-latest  # Настройки окружения.
     steps:
-    - uses: actions/methodologyCode@v2  # checkout@v2 / для вызова actions.
-    - name: Run a one-line script  # Просто имя.
-      run: echo Hello, world, racoons!  # Будет выполнена в терминале окружения.
+    - uses: actions/checkout@v2  # checkout@v2 / для вызова actions.
+    - name: Run project  # Просто имя.
+      run: echo 'python manage.py runserver' # Будет выполнена в терминале окружения.
